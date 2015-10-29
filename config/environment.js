@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-simple-auth-test-01',
+    podModulePrefix: 'ember-simple-auth-test-01/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
