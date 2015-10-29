@@ -20,6 +20,14 @@ module.exports = function(environment) {
     }
   };
 
+  ENV.torii = {
+    providers: {
+      'facebook-oauth2': {
+        apiKey: '631252926924840'
+      }
+    }
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
