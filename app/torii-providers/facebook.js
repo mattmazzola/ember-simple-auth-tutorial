@@ -1,6 +1,6 @@
-import FacebookOauth2Provider from 'torii/providers/facebook-oauth2';
+import FacebookConnectProvider from 'torii/providers/facebook-connect';
 
-export default FacebookOauth2Provider.extend({
+export default FacebookConnectProvider.extend({
   fetch(data) {
     return data;
   }

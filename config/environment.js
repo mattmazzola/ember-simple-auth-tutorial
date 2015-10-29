@@ -24,6 +24,9 @@ module.exports = function(environment) {
     providers: {
       'facebook-oauth2': {
         apiKey: '631252926924840'
+      },
+      'facebook-connect': {
+        appId: '631252926924840'
       }
     }
   };
