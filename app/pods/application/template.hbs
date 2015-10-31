@@ -1,21 +1,19 @@
 <h1>Ember Simple Auth Test</h1>
 
-<h2>User Status:</h2>
 {{#if session.isAuthenticated}}
-  <button type="button" {{action 'invalidateSession'}}>Logout</button>
-  {{#if sessionAccount.userId}}
-    <span>Signed in as: {{sessionAccount.userId}}</span>
-  {{/if}}
-{{else}}
-  {{#link-to 'login'}}Login{{/link-to}}
+  <h2>User Status:</h2>
+  <p>
+    <span>Signed in as: {{sessionAccount.user.name}} ({{sessionAccount.user.provider}}:{{sessionAccount.user.id}})</span> <button type="button" {{action 'invalidateSession'}}>Logout</button>
+  </p>
 {{/if}}
 
+{{#if session.isAuthenticated}}
 <h2>Navigation</h2>
 <ul>
   <li>{{#link-to "index"}}Index{{/link-to}}</li>
-  <li>{{#link-to "login"}}Login{{/link-to}}</li>
   <li>{{#link-to "protected"}}Protected{{/link-to}}</li>
 </ul>
+{{/if}}
 
 <hr />
 

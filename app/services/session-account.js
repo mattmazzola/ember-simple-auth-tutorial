@@ -5,9 +5,9 @@ export default Ember.Service.extend({
   session: Ember.inject.service('session'),
   store: Ember.inject.service('store'),
 
-  userId: Ember.computed('session.data.authenticated.userId', function() {
-    const userId = this.get('session.data.authenticated.userId');
-    return userId;
+  user: Ember.computed('session.data.authenticated', function() {
+    const user = this.get('session.data.authenticated');
+    return user;
   })
 
   // userId: Ember.computed('session.data.authenticated.userId', function() {

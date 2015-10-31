@@ -25,7 +25,10 @@ module.exports = function(environment) {
       'facebook-oauth2': {
         apiKey: '631252926924840'
       },
-      'facebook-connect': {
+      'facebook-oauth2implicit': {
+        apiKey: '631252926924840'
+      },
+      'microsoft-openidconnect': {
         appId: '631252926924840'
       }
     }
