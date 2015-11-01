@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
       console.log('twitter');
     },
     authenticateWithGoogle() {
-      console.log('google');
+      this.get('session').authenticate('authenticator:torii', 'google');
     },
     authenticateWithMicrosoft() {
       console.log('microsoft');

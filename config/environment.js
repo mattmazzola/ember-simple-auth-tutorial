@@ -22,8 +22,8 @@ module.exports = function(environment) {
 
   ENV.torii = {
     providers: {
-      'facebook-oauth2': {
-        apiKey: '631252926924840'
+      'google-openidconnect': {
+        apiKey: '983545451005-ha2n1avpb7t3849m912pji5b6ed8vonf.apps.googleusercontent.com'
       },
       'facebook-oauth2implicit': {
         apiKey: '631252926924840'
