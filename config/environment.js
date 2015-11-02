@@ -29,7 +29,7 @@ module.exports = function(environment) {
         apiKey: '631252926924840'
       },
       'microsoft-openidconnect': {
-        appId: '631252926924840'
+        apiKey: '3cf52a90-abe9-4081-8335-3a8a3b537cdb'
       }
     }
   };

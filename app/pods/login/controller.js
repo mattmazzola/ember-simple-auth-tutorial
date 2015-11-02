@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
       this.get('session').authenticate('authenticator:torii', 'google');
     },
     authenticateWithMicrosoft() {
-      console.log('microsoft');
+      this.get('session').authenticate('authenticator:torii', 'microsoft');
     }
 
   }
