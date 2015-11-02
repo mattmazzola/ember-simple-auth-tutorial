@@ -30,7 +30,11 @@ module.exports = function(environment) {
       },
       'microsoft-openidconnect': {
         apiKey: '3cf52a90-abe9-4081-8335-3a8a3b537cdb'
-      }
+      },
+      'twitter': {
+        requestTokenUri: 'https://api.twitter.com/oauth/authorize',
+        apiKey: 'C3eflLXM9qgbSugR0FENBEOFJ'
+      },
     }
   };
 
