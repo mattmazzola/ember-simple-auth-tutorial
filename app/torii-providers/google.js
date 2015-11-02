@@ -6,7 +6,7 @@ export default Oauth2Bearer.extend({
   baseUrl: 'https://accounts.google.com/o/oauth2/auth',
   responseType: 'token id_token',
   responseParams: ['token', 'id_token'],
-  scope:        configurable('scope', 'email'),
+  scope: configurable('scope', 'email'),
 
   display: 'popup',
   redirectUri: configurable('redirectUri', function(){
@@ -43,6 +43,7 @@ export default Oauth2Bearer.extend({
       }).then(function(user){
         normalizedUser.id = user.id;
         normalizedUser.name = user.displayName;
+        normalizedUser.profileImageUrl = user.image.url;
 
         return normalizedUser;
       });

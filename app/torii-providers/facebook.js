@@ -39,7 +39,8 @@ export default Oauth2Bearer.extend({
           accessToken,
           email: facebookUser.email,
           id: facebookUser.id,
-          name: facebookUser.name
+          name: facebookUser.name,
+          profileImageUrl: ''
         };
       });
     });
