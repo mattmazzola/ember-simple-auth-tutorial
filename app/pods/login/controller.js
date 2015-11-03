@@ -7,9 +7,6 @@ export default Ember.Controller.extend({
     authenticateWithFacebook() {
       this.get('session').authenticate('authenticator:torii', 'facebook');
     },
-    authenticateWithTwitter() {
-      this.get('session').authenticate('authenticator:torii', 'twitter');
-    },
     authenticateWithGoogle() {
       this.get('session').authenticate('authenticator:torii', 'google');
     },
