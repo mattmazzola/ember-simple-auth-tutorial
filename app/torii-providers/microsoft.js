@@ -21,7 +21,7 @@ export default Oauth2Bearer.extend({
         throw new Error('User canceled authorization');
       }
 
-      const accessToken = authData.authorizationToken.token;
+      //const accessToken = authData.authorizationToken.token;
       // const idToken = authData.authorizationToken.id_token;
       // const [,idTokenPayload,] = idToken.split('.');
       // const userData = JSON.parse(atob(idTokenPayload));

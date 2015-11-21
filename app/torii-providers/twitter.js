@@ -13,7 +13,7 @@ export default Provider.extend({
           throw new Error('User canceled authorization');
         }
 
-        const accessToken = authData.authorizationToken.token;
+        //const accessToken = authData.authorizationToken.token;
 
         return authData;
       });

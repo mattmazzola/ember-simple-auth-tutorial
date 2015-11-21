@@ -5,7 +5,7 @@ export default Torii.extend({
   torii: Ember.inject.service('torii'),
 
   restore(authData) {
-    return new Ember.RSVP.Promise((resolve, reject) => {
+    return new Ember.RSVP.Promise(resolve => {
       // Check that accessToken is not expired.
       if(authData.accessToken) {
           resolve(authData);
