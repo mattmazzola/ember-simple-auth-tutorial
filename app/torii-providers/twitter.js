@@ -17,5 +17,9 @@ export default Provider.extend({
 
         return authData;
       });
+  },
+
+  fetch: function(authData){
+      return authData;
   }
 });

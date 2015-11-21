@@ -49,5 +49,9 @@ export default Oauth2Bearer.extend({
         return normalizedUser;
       });
     });
+  },
+
+  fetch: function(authData){
+      return authData;
   }
 });
