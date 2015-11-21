@@ -1,5 +1,5 @@
 import Ember from 'ember';
-// import DS from 'ember-data';
+import DS from 'ember-data';
 
 export default Ember.Service.extend({
   session: Ember.inject.service('session'),
@@ -8,14 +8,12 @@ export default Ember.Service.extend({
   user: Ember.computed('session.data.authenticated', function() {
     const user = this.get('session.data.authenticated');
     return user;
-  })
+  }),
 
-  // userId: Ember.computed('session.data.authenticated.userId', function() {
-  //   const accountId = this.get('session.data.authenticated.userId');
-  //   if (!Ember.isEmpty(accountId)) {
-  //     return DS.PromiseObject.create({
-  //       promise: this.get('store').find('account', accountId)
-  //     });
-  //   }
-  // })
+  userAccount: Ember.computed('session.data.authenticated.id', function() {
+    const userKey = `${this.get('session.data.authenticated.provider')}:${this.get('session.data.authenticated.id')}`;
+    return DS.PromiseObject.create({
+      promise: this.get('store').find('user', userKey)
+    });
+  })
 });

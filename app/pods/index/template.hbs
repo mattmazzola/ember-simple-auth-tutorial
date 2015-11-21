@@ -1,1 +1,16 @@
-<h3>Index</h3>
+<h1>Ember Simple Auth Test</h1>
+
+<hr />
+
+<h2>User Status:</h2>
+<p>
+  <span>Signed in as: {{sessionAccount.user.name}} ({{sessionAccount.user.provider}}:{{sessionAccount.user.id}})</span> <button type="button" {{action 'invalidateSession'}}>Logout</button>
+</p>
+
+<h2>Navigation</h2>
+<ul>
+  <li>{{#link-to "index.index"}}Index{{/link-to}}</li>
+  <li>{{#link-to "index.profile"}}Profile{{/link-to}}</li>
+</ul>
+
+{{outlet}}
