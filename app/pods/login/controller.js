@@ -4,6 +4,9 @@ export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
 
   actions: {
+    authenticateWithBattlenet() {
+      this.get('session').authenticate('authenticator:torii', 'battlenet');
+    },
     authenticateWithFacebook() {
       this.get('session').authenticate('authenticator:torii', 'facebook');
     },

@@ -22,6 +22,14 @@ module.exports = function(environment) {
 
   ENV.torii = {
     providers: {
+      'battlenet-oauth2implicit': {
+        apiKey: 'wwwnqgunrddcg35sdf4qkahk43q494hc',
+        redirectUri: 'https://localhost:4200/'
+      },
+      'battlenet-oauth2authorization': {
+        apiKey: 'pnk6ff85mpfm8emxfxbffegc5nyb6sbs',
+        redirectUri: 'https://localhost:4200/'
+      },
       'google-openidconnect': {
         apiKey: '983545451005-ha2n1avpb7t3849m912pji5b6ed8vonf.apps.googleusercontent.com'
       },
