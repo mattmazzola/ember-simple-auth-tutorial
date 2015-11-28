@@ -1,10 +1,6 @@
 import Provider from 'torii/providers/twitter-oauth1';
 
 export default Provider.extend({
-  fetch(data) {
-    return data;
-  },
-
   open: function() {
     return this._super()
       .then(function(authData){

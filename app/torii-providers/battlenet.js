@@ -36,18 +36,17 @@ export default Oauth2Bearer.extend({
       return new Ember.RSVP.Promise(function(resolve, reject){
         Ember.$.ajax({
           method: 'POST',
-          type: 'POST',
-          url: 'https://us.battle.net/oauth/token',
-          headers: {
-            'Authorization': authorization
-            // , 'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          data: {
-            'grant_type': 'authorization_code',
+          url: 'https://localhost:44300/api/token',
+          contentType: "application/json; charset=UTF-8",
+          dataType: 'json',
+          data: JSON.stringify({
+            'clientId': key,
+            'grantType': 'authorization_code',
             'scope': 'sc2.profile',
             'code': authorizationCode,
-            'redirect_uri': 'https://localhost:4200/'
-          },
+            'redirectUri': 'https://localhost:4200/'
+          }),
+          processData: false,
           success: Ember.run.bind(null, resolve),
           error: Ember.run.bind(null, reject)
         });
@@ -63,15 +62,17 @@ export default Oauth2Bearer.extend({
               error: Ember.run.bind(null, reject)
             });
           })
-        })
-        .then(function(battleNetUser){
-          return {
-            accessToken,
-            email: battleNetUser.email,
-            id: battleNetUser.id,
-            name: battleNetUser.name,
-            profileImageUrl: ''
-          };
+            .then(function(battleNetUser){
+              const character = battleNetUser.characters[0];
+
+              return {
+                accessToken,
+                email: battleNetUser.email,
+                id: character.id,
+                name: character.name,
+                profileImageUrl: character.avatar.url
+              };
+            });
         });
     });
   },

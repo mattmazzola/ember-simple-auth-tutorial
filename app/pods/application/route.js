@@ -6,7 +6,7 @@ const {
 } = Ember;
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-  sessionAccount: Ember.inject.service('session-account'),
+  sessionAccount: inject.service('session-account'),
 
   sessionAuthenticated() {
     var user = this.get('sessionAccount.userAccount');
@@ -18,8 +18,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       if (attemptedTransition) {
         attemptedTransition.retry();
         this.set('session.attemptedTransition', null);
-      } else {
-        this.transitionTo(Configuration.routeAfterAuthentication);
       }
     }
   }
