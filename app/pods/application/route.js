@@ -10,15 +10,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
   sessionAuthenticated() {
     var user = this.get('sessionAccount.userAccount');
-    if(!user.content) {
-      this.transitionTo('index.profile');
-    }
-    else {
-      let attemptedTransition = this.get('session.attemptedTransition');
-      if (attemptedTransition) {
-        attemptedTransition.retry();
-        this.set('session.attemptedTransition', null);
-      }
-    }
+    this.transitionTo('index.profile', user);
   }
 });

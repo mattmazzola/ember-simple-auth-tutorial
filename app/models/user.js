@@ -5,6 +5,9 @@ const {
 } = DS;
 
 export default DS.Model.extend({
-  name: attr('string'),
-  profilePictureUrl: attr('string')
+  battleNetId: attr('number'),
+  pointsEarned: attr('number'),
+  pointsSpent: attr('number'),
+  role: attr('number'),
+  created: attr('string')
 });

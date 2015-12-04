@@ -11,9 +11,9 @@ export default Ember.Service.extend({
   }),
 
   userAccount: Ember.computed('session.data.authenticated.id', function() {
-    const userKey = `${this.get('session.data.authenticated.provider')}:${this.get('session.data.authenticated.id')}`;
+    const userId = this.get('session.data.authenticated.id');
     return DS.PromiseObject.create({
-      promise: this.get('store').find('user', userKey)
+      promise: this.get('store').find('user', userId)
     });
   })
 });

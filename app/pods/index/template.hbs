@@ -10,7 +10,7 @@
 <h2>Navigation</h2>
 <ul>
   <li>{{#link-to "index.index"}}Index{{/link-to}}</li>
-  <li>{{#link-to "index.profile"}}Profile{{/link-to}}</li>
+  <li>{{#link-to "index.profile" sessionAccount.userAccount}}Profile{{/link-to}}</li>
 </ul>
 
 {{outlet}}
