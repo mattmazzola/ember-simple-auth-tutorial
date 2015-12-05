@@ -31,7 +31,34 @@ export default DS.JSONAPISerializer.extend({
     }
   },
 
-  extractAttributes: function (modelClass, resourceHash) {
+  extractAttributes(modelClass, resourceHash) {
     return resourceHash.attributes;
+  },
+
+  serialize(snapshot, options) {
+    let data = this._super(...arguments);
+    return data.data;
+  },
+
+  serializeAttribute(snapshot, json, key, attribute) {
+    var type = attribute.type;
+
+    if (this._canSerialize(key)) {
+      var value = snapshot.attr(key);
+      if (type) {
+        var transform = this.transformFor(type);
+        value = transform.serialize(value);
+      }
+
+      // if provided, use the mapping provided by `attrs` in
+      // the serializer
+      var payloadKey =  this._getMappedKey(key, snapshot.type);
+
+      if (payloadKey === key && this.keyForAttribute) {
+        payloadKey = key; //this.keyForAttribute(key, 'serialize');
+      }
+
+      json[payloadKey] = value;
+    }
   }
 });
