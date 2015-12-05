@@ -12,8 +12,31 @@ export default Ember.Service.extend({
 
   userAccount: Ember.computed('session.data.authenticated.id', function() {
     const userId = this.get('session.data.authenticated.id');
+    
+    const userPromise = new Ember.RSVP.Promise(resolve => {
+      if(userId) {
+        return this.get('store').find('user', userId)
+          .catch(error => {
+            const newUser = this.get('store').createRecord('user', {
+              id: userId,
+              battleNetId: userId,
+              // TODO: Remove, just make API happy
+              pointsEarned: 0,
+              pointsSpent: 0,
+              role: 0,
+              created: "2015-01-01T00:00:00Z"
+            });
+
+            return newUser.save();
+          });
+      }
+      else {
+        resolve(null);
+      }
+    });
+
     return DS.PromiseObject.create({
-      promise: this.get('store').find('user', userId)
+      promise: userPromise
     });
   })
 });
