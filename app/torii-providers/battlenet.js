@@ -52,12 +52,10 @@ export default Oauth2Bearer.extend({
         });
       })
         .then(tokenData => {
-          const accessToken = tokenData.access_token;
-
           return new Ember.RSVP.Promise(function(resolve, reject){
             Ember.$.ajax({
               url: 'https://us.api.battle.net/sc2/profile/user',
-              headers: { 'Authorization': `Bearer ${accessToken}` },
+              headers: { 'Authorization': `Bearer ${tokenData.battletNetToken}` },
               success: Ember.run.bind(null, resolve),
               error: Ember.run.bind(null, reject)
             });
@@ -66,7 +64,8 @@ export default Oauth2Bearer.extend({
               const character = battleNetUser.characters[0];
 
               return {
-                accessToken,
+                accessToken: tokenData.sc2iqToken,
+                battletNetAccessToken: tokenData.battletNetToken,
                 email: battleNetUser.email,
                 id: character.id,
                 name: character.name,
